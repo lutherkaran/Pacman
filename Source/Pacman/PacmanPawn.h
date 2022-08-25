@@ -19,11 +19,26 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
+public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+
+protected:
+	UPROPERTY(BlueprintReadOnly)
+		bool bFrozen = false;
+public:
+	void SetDirection(const FVector Direction);
+	bool IsFrozen() { return bFrozen; }
+	UFUNCTION(BlueprintCallable)
+		void SetFrozen(bool _bFrozen) { bFrozen = _bFrozen; };
+
+private:
+	UFUNCTION()
+		void OnOverlapBegin(AActor* PlayerActor, AActor* OtherActor);
+
 
 };
