@@ -31,6 +31,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	void Consume();
+
 	UPROPERTY(EditAnywhere)
 		EFoodieType FoodieType = EFoodieType::Regular;
 

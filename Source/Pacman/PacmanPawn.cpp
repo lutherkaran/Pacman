@@ -9,6 +9,7 @@ APacmanPawn::APacmanPawn()
 {
 	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+	this->SetActorLocation(FVector(0.f, 0.f, -30.f));
 
 }
 
@@ -56,7 +57,7 @@ void APacmanPawn::SetDirection(const FVector Direction)
 
 void APacmanPawn::OnOverlapBegin(AActor* PlayerActor, AActor* OtherActor)
 {
-	if (OtherActor->ActorHasTag("Foodie.Regular"))
+	if (OtherActor->ActorHasTag("Foodie.Regular") || OtherActor->ActorHasTag("Foodie.PowerUp"))
 	{
 		Cast<AFoodie>(OtherActor)->Consume();
 	}

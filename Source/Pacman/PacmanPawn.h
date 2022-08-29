@@ -33,6 +33,7 @@ protected:
 public:
 	void SetDirection(const FVector Direction);
 	bool IsFrozen() { return bFrozen; }
+
 	UFUNCTION(BlueprintCallable)
 		void SetFrozen(bool _bFrozen) { bFrozen = _bFrozen; };
 
